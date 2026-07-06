@@ -118,7 +118,7 @@ router.post("/signin", async (req, res) => {
 });
 
 
-
+// this route is not used in the frontend yet
 router.put("/", authMiddleware, async (req, res) => {
     // Validate input
     const { success } = updateBody.safeParse(req.body);
@@ -162,6 +162,22 @@ router.get('/bulk', async(req, res) => {
             lastName: user.lastName,
             _id: user._id
         }))
+    });
+});
+
+
+router.get('/me', authMiddleware, async(req, res) => {
+    const user = await User.findOne({_id: req.userId });
+
+    if(!user){
+        return res.status(404).json({
+            message: "User not found"
+        });
+    }
+
+    res.json({
+        firstName: user.firstName,
+        lastName: user.lastName
     });
 });
 

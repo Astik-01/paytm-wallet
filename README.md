@@ -31,7 +31,7 @@ This repository contains both the frontend and backend in separate directories. 
 ### 1. Clone the Repository
 //changes
 ```bash
-git clone https://github.com/Astik-01/YOUR-REPO-NAME.git
+git clone https://github.com/Astik-01/paytm-wallet.git
 cd YOUR-REPO-NAME
 ```
 
